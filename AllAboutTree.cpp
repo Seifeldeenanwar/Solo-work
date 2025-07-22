@@ -78,41 +78,6 @@ class BST {
 
     }
 };
-class AVL{
-    node*root = nullptr ;
-    public:
-    int getHeight(node* n){
-        if(n==nullptr){
-            return -1 ;
-        }
-        return 1+max(getHeight(n->left),getHeight(n->right)) ;
-    }
-    int getBalance(node* n){
-        if(n == nullptr){
-            return 0 ;
-        }
-        return getHeight(n->left) - getHeight(n->right) ;
-    }
-    node* rightrotation(node* n){
-        node*l = n->left ;
-        node*lr = l->right ;
-        l->right = n ;
-        n->left = lr ;
-        return l ;
-    }
-    node* leftrotation(node* n){
-        node*r = n->right ;
-        node*rl = r->left ;
-        r->left = n ;
-        n->right = rl ;
-        return r ;
-    }
-    
-
-
-};
-
-int main(){
     BST bst ;
     bst.insert(10) ;
     bst.insert(8) ;
