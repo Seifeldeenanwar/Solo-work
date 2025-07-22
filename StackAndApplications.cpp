@@ -147,33 +147,6 @@ void calculatePostfix(string exp){
     }
     cout << "Answer = " << s.top() << endl; 
 }
-void convertInfixToPostfix(string exp){
-    string newexp = "" ;
-    stack<char> s ;
-    for(int i = 0 ; i < exp.size() ; i++){
-        if(isdigit(exp[i])){
-            newexp += exp[i] ;
-        }
-        else if (exp[i] == '+' || exp[i] == '-' || exp[i] == '/' || exp[i] == '*'){
-            if(!s.isempty() && (exp[i] == '+' && s.top() == '-' || exp[i] == '-' && s.top() == '+')){
-                while(!s.isempty()){
-                    newexp += s.top() ;
-                    s.pop() ;
-                }
-                s.push(exp[i]) ;
-            }
-            else {
-                s.push(exp[i]) ;
-            }
-        }
-    }
-    while(!s.isempty()){
-        newexp += s.top() ;
-        s.pop() ;
-    }
-    cout << "After conversion = " << newexp << endl;
-}
-
 int main(){
     // string n1 ;
     // string n2 ;
@@ -189,7 +162,6 @@ int main(){
     // cout << s.isempty() << endl; 
    // cout << checkBrackets("[5+4]({10/2}-3)") ;
    //calculatePostfix("342*+5-");
-   convertInfixToPostfix("3*4+2");
 
 
 
